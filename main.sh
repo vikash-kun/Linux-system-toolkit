@@ -10,7 +10,10 @@ echo "1. Show Date & Time"
 echo "2. Show Current User"
 echo "3. Show Current Directory"
 echo "4. Show Linux Kernel Version"
-echo "5. Exit"
+echo "5. Show CPU Information"
+echo "6. Show Memory Usage"
+echo "7. Show Disk Usage"
+echo "8. Exit"
 echo
 
 read -p "Enter your choice: " choice
@@ -31,9 +34,21 @@ case $choice in
         ;;
 
     5)
-       echo "Goodbye!"
+        lscpu
         ;;
     
+    6)
+        free -h
+        ;;
+
+    7)  
+        df -h
+        ;;
+
+    8)
+        echo "Good Byee!"
+        ;;
+
     *) 
         echo "Invalid choice!"
         ;;
