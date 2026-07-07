@@ -13,7 +13,8 @@ echo "4. Show Linux Kernel Version"
 echo "5. Show CPU Information"
 echo "6. Show Memory Usage"
 echo "7. Show Disk Usage"
-echo "8. Exit"
+echo "8. Show Uptime"
+echo "9. Exit"
 echo
 
 read -p "Enter your choice: " choice
@@ -34,18 +35,23 @@ case $choice in
         ;;
 
     5)
-        lscpu
-        ;;
+         ./modules/cpu.sh
+           ;;
     
     6)
-        free -h
-        ;;
+        ./modules/memory.sh
+          ;;
 
     7)  
-        df -h
-        ;;
+        ./modules/disk.sh
+         ;;
 
     8)
+        ./modules/uptime.sh
+        ;;
+
+    9) 
+      
         echo "Good Byee!"
         ;;
 
