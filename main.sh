@@ -1,25 +1,39 @@
 #!/bin/bash
+GREEN="\e[32m"
+RED="\e[31m"
+BLUE="\e[34m"
+YELLOW="\e[33m"
+RESET="\e[0m"
+show_menu() {
+    clear
 
-echo "===================================="
-echo "   Welcome to Linux System Toolkit"
-echo "===================================="
-echo
+    echo -e "${GREEN}====================================${RESET}"
+    echo -e "${GREEN}   Welcome to Linux System Toolkit${RESET}"
+    echo -e "${GREEN}====================================${RESET}"
+    echo
+
+    echo "Hello, Vikash!"
+    echo
+    echo "1. Show Date & Time"
+    echo "2. Show Current User"
+    echo "3. Show Current Directory"
+    echo "4. Show Linux Kernel Version"
+    echo "5. Show CPU Information"
+    echo "6. Show Memory Usage"
+    echo "7. Show Disk Usage"
+    echo "8. Show Uptime"
+    echo "9. Exit"
+    echo
+}
 echo "Hello, Vikash!"
 
-echo "1. Show Date & Time"
-echo "2. Show Current User"
-echo "3. Show Current Directory"
-echo "4. Show Linux Kernel Version"
-echo "5. Show CPU Information"
-echo "6. Show Memory Usage"
-echo "7. Show Disk Usage"
-echo "8. Show Uptime"
-echo "9. Exit"
-echo
+while true
+do
+    show_menu
 
-read -p "Enter your choice: " choice
+    read -p "Enter your choice: " choice
 
-case $choice in
+    case $choice in
     1)
         date
         ;;
@@ -51,12 +65,14 @@ case $choice in
         ;;
 
     9) 
-      
-        echo "Good Byee!"
-        ;;
+    
+      echo -e "${RED}Goodbye!${RESET}"
+      break
+    ;;
 
     *) 
         echo "Invalid choice!"
         ;;
 esac
-
+read -p "Press Enter to continue..."
+done
