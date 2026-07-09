@@ -4,6 +4,10 @@ RED="\e[31m"
 BLUE="\e[34m"
 YELLOW="\e[33m"
 RESET="\e[0m"
+
+log_activity() {
+    echo "$(date '+%Y-%m-%d %H:%M:%S') - $1" >> logs/activity.log
+}
 show_menu() {
     clear
 
@@ -35,40 +39,49 @@ do
 
     case $choice in
     1)
-        date
+        log_activity "Show Date & Time"
         ;;
     2)
-        whoami
+       log_activity  "Show Current User"
+          whoami
         ;;
     3)
-        pwd
-        ;;
+           log_activity "Show Current Directory"
+         pwd
+           ;;
+        
     
     4) 
-        uname -r
-        ;;
+       log_activity "Show Linux Kernel Version"
+    uname -r
+    ;;
 
     5)
-         ./modules/cpu.sh
-           ;;
+        log_activity "Show CPU Information"
+    ./modules/cpu.sh
+    ;;
     
     6)
-        ./modules/memory.sh
+       log_activity  "Show memory Information"
+         ./modules/memory.sh
           ;;
 
     7)  
-        ./modules/disk.sh
+       log_activity "Show disk Information"
+          ./modules/disk.sh
          ;;
 
     8)
-        ./modules/uptime.sh
-        ;;
+       log_activity "Show Uptime"
+    ./modules/uptime.sh
+    ;;
 
     9) 
-    
-      echo -e "${RED}Goodbye!${RESET}"
-      break
+    log_activity "Exit"
+    echo -e "${RED}Goodbye!${RESET}"
+    break
     ;;
+     
 
     *) 
         echo "Invalid choice!"
