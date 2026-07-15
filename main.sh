@@ -26,7 +26,8 @@ show_menu() {
     echo "6. Show Memory Usage"
     echo "7. Show Disk Usage"
     echo "8. Show Uptime"
-    echo "9. Exit"
+    echo "9. View Activity Log"
+    echo "10. Exit"
     echo
 }
 echo "Hello, Vikash!"
@@ -40,6 +41,7 @@ do
     case $choice in
     1)
         log_activity "Show Date & Time"
+            date
         ;;
     2)
        log_activity  "Show Current User"
@@ -76,7 +78,12 @@ do
     ./modules/uptime.sh
     ;;
 
-    9) 
+   9)
+    log_activity "View Activity Log"
+    ./modules/logs.sh
+    ;; 
+
+   10) 
     log_activity "Exit"
     echo -e "${RED}Goodbye!${RESET}"
     break
