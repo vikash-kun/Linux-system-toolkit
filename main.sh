@@ -27,7 +27,9 @@ show_menu() {
     echo "7. Show Disk Usage"
     echo "8. Show Uptime"
     echo "9. View Activity Log"
-    echo "10. Exit"
+    echo "10. Search Activity Log"
+    echo "11. Clear Activity Log"
+    echo "12. Exit"
     echo
 }
 echo "Hello, Vikash!"
@@ -83,7 +85,18 @@ do
     ./modules/logs.sh
     ;; 
 
-   10) 
+   10)
+    log_activity "Search Activity Log"
+    ./modules/search_log.sh
+    ;; 
+
+   11)
+    log_activity "Clear Activity Log"
+    ./modules/clear_log.sh
+    ;;
+
+  
+   12) 
     log_activity "Exit"
     echo -e "${RED}Goodbye!${RESET}"
     break
